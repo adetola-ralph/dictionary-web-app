@@ -11,7 +11,7 @@ export const ChevronIcon = ({ className }: ChevronIconProps) => {
       fill="none"
       className={className}
     >
-      <path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="1.5" />
+      <path d="M1 1L7 7L13 1" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
 };
