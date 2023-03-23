@@ -1,3 +1,4 @@
+export * from './AppContainer';
 export * from './AppHeader';
 export * from './DarkModeToggle';
 export * from './SearchInput';
