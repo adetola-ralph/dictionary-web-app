@@ -1,3 +1,4 @@
+import { ExternalLinkIcon } from "../../icons";
 import { DictionarEntry } from "../../types";
 
 interface DictionaryEntryProps {
@@ -7,15 +8,17 @@ interface DictionaryEntryProps {
 export const DictionaryEntry = ({ entry }: DictionaryEntryProps) => {
   const onSynonymWordClick = (word: string) => {};
 
+  const phonetics = !!entry.phonetics.length ? entry.phonetics[0] : {};
+
   return (
     <>
       <div className="flex justify-between items-center pt-11">
         <div>
-          <h2 className="text-2xl font-bold text-dgray-500 dark:text-white">
+          <h2 className="text-2xl md:text-3xl font-bold text-dgray-500 dark:text-white">
             {entry.word}
           </h2>
-          {entry.phonetic && (
-            <p className="text-xl text-veronica">{entry.phonetic}</p>
+          {phonetics && (
+            <p className="md:text-xl text-veronica">{phonetics.text}</p>
           )}
         </div>
       </div>
@@ -40,7 +43,7 @@ export const DictionaryEntry = ({ entry }: DictionaryEntryProps) => {
             {!!synonyms.length && (
               <div className="flex flex-row space-x-6">
                 <span className="text-dgray-300 text-lg">Synonyms</span>
-                <div className="space-x-2">
+                <div className="gap-x-2 flex flex-wrap">
                   {synonyms.map((word, synonymIndex) => (
                     <span
                       onClick={() => onSynonymWordClick(word)}
@@ -57,10 +60,13 @@ export const DictionaryEntry = ({ entry }: DictionaryEntryProps) => {
         )
       )}
       <div className="flex flex-col md:flex-row md:space-x-5 space-y-2 md:space-y-0 border-t border-dgray-200 dark:border-dgray-400 mt-8 md:mt-10 pt-6 md:pt-5">
-        <span className="text-dgray-300 text-sm underline">source</span>
+        <span className="text-dgray-300 text-sm underline">Sources</span>
         {
           entry.sourceUrls.map((url, urlIndex) => (
-            <a href={url} key={urlIndex} className="text-sm underline">{url}</a>
+            <a href={url} key={urlIndex} className="text-sm underline flex items-center" target="_blank">
+              {url}
+              <ExternalLinkIcon className="text-dgray-300 h-3 w-3 ml-2" />
+            </a>
           ))
         }
       </div>
