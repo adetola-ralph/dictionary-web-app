@@ -5,6 +5,7 @@ import { AppHeader } from "../AppHeader";
 import { SearchInput } from "../SearchInput";
 import { DictionarEntry, ErrorEntry } from "../../types";
 import { DictionaryEntry } from "../DictionaryEntry";
+import { EmptyState } from "../EmptyState";
 
 export const AppContainer = () => {
   const [searchValue, setSearchValue] = useState<string>('');
@@ -46,7 +47,7 @@ export const AppContainer = () => {
         <SearchInput onSearchEnter={handleSearchEnter} />
       </div>
 
-      <>{!!error && <div>there is an error</div>}</>
+      <>{!!error && <EmptyState />}</>
 
       {
         !!dictEntry.length && dictEntry.map((entry, index) => (
