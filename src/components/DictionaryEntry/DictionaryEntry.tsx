@@ -1,5 +1,6 @@
 import { ExternalLinkIcon } from "../../icons";
 import { DictionarEntry } from "../../types";
+import { AudioPlayer } from "../AudioPlayer";
 
 interface DictionaryEntryProps {
   entry: DictionarEntry;
@@ -21,6 +22,9 @@ export const DictionaryEntry = ({ entry }: DictionaryEntryProps) => {
             <p className="md:text-xl text-veronica">{phonetics.text}</p>
           )}
         </div>
+        {phonetics.audio && (
+          <AudioPlayer audio={phonetics.audio} className="shrink" />
+        )}
       </div>
       {entry.meanings.map(
         ({ partOfSpeech, definitions, synonyms }, meaningIndex) => (
