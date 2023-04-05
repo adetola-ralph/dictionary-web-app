@@ -2,8 +2,8 @@
 module.exports = {
   darkMode: 'class',
   content: [
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./src/**/*"
+    "./**/*.{js,ts,jsx,tsx,html}",
+    "./**/*",
   ],
   theme: {
     extend: {
@@ -32,7 +32,8 @@ module.exports = {
       base: ['18px', '24px'],
       lg: ['20px', '24px'],
       xl: ['24px', '29px'],
-      '2xl': ['64px', '77px'],
+      '2xl': ['32px', '39px'],
+      '3xl': ['64px', '77px'],
     }
   },
   plugins: [],
