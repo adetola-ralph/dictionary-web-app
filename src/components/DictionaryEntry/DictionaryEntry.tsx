@@ -18,7 +18,7 @@ export const DictionaryEntry = ({ entry }: DictionaryEntryProps) => {
           <h2 className="text-2xl md:text-3xl font-bold text-dgray-500 dark:text-white">
             {entry.word}
           </h2>
-          {phonetics && (
+          {phonetics.text && (
             <p className="md:text-xl text-veronica">{phonetics.text}</p>
           )}
         </div>
@@ -65,14 +65,17 @@ export const DictionaryEntry = ({ entry }: DictionaryEntryProps) => {
       )}
       <div className="flex flex-col md:flex-row md:space-x-5 space-y-2 md:space-y-0 border-t border-dgray-200 dark:border-dgray-400 mt-8 md:mt-10 pt-6 md:pt-5">
         <span className="text-dgray-300 text-sm underline">Sources</span>
-        {
-          entry.sourceUrls.map((url, urlIndex) => (
-            <a href={url} key={urlIndex} className="text-sm underline flex items-center" target="_blank">
-              {url}
-              <ExternalLinkIcon className="text-dgray-300 h-3 w-3 ml-2" />
-            </a>
-          ))
-        }
+        {entry.sourceUrls.map((url, urlIndex) => (
+          <a
+            href={url}
+            key={urlIndex}
+            className="text-sm underline flex items-center"
+            target="_blank"
+          >
+            {url}
+            <ExternalLinkIcon className="text-dgray-300 h-3 w-3 ml-2" />
+          </a>
+        ))}
       </div>
     </>
   );

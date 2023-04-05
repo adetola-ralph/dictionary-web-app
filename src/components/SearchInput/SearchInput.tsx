@@ -30,7 +30,7 @@ export const SearchInput = ({ onSearchEnter }: SearchInputProps) => {
   return (
     <form onSubmit={handleFormSubmit}>
       <div className={cx(
-        "relative rounded-2xl bg-dgray-100 dark:bg-dgray-600 flex items-center border border-transparent",
+        "relative rounded-2xl bg-dgray-100 dark:bg-dgray-600 flex items-center border border-transparent transition-colors duration-200 ease-in-out",
         hasError && 'border-coral-red'
       )}>
         <input
