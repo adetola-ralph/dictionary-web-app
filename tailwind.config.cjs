@@ -34,6 +34,10 @@ module.exports = {
       xl: ['24px', '29px'],
       '2xl': ['32px', '39px'],
       '3xl': ['64px', '77px'],
+    },
+    boxShadow: {
+      dshadow: '0 5px 30px 0px rgba(0, 0, 0, 0.1)',
+      'dshadow-dark': '0 5px 30px 0px rgba(164, 69, 237, 1)'
     }
   },
   plugins: [],

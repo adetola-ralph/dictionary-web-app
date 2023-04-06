@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import cx from "classnames";
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { AppHeader } from "../AppHeader";
@@ -10,6 +11,7 @@ import { EmptyState } from "../EmptyState";
 export const AppContainer = () => {
   const [searchValue, setSearchValue] = useState<string>('');
   const [isEnabled, setIsEnabled] = useState<boolean>(false);
+  const [selectedFont, setSelectedFont] = useState('font-sans');
 
   const { error, data = [], isLoading } = useQuery({
     queryKey: ["search-dictionary", searchValue],
@@ -40,9 +42,13 @@ export const AppContainer = () => {
 
   const dictEntry = data as Array<DictionarEntry>;
 
+  const onFontChange = (font: string) => {
+    setSelectedFont(font);
+  };
+
   return (
-    <div className="container-md max-w-screen-md mx-auto p-6 md:p-0 md:pt-14 lg:pb-32 md:pb-28 pb-20">
-      <AppHeader />
+    <div className={cx('container-md max-w-screen-md mx-auto p-6 md:p-10 md:pt-14 lg:pb-32 md:pb-28 pb-20', selectedFont)}>
+      <AppHeader onFontChange={onFontChange} />
       <div className="pt-6 md:pt-[3.25rem]">
         <SearchInput onSearchEnter={handleSearchEnter} />
       </div>
